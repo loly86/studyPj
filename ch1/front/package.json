@@ -1,0 +1,25 @@
+{
+  "name": "vue-nudebird-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.0",
+    "@nuxtjs/vuetify": "^1.11.3",
+    "axios": "^0.21.1",
+    "nuxt": "^2.8.1",
+    "vee-validate": "^3.4.5",
+    "vue": "^2.6.12",
+    "vuetify": "^2.4.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-plugin-vue": "^7.5.0"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "lint": "eslint **/*"
+  },
+  "author": "",
+  "license": "ISC"
+}
