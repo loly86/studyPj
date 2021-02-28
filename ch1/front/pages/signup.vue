@@ -15,15 +15,19 @@
           <v-text-field
             v-model="password"
             label="비밀번호"
-            type="password"
+            :type="show1 ? 'text' : 'password'"
             :rules="passwordRules"
             required
+            :append-icon="show1 ? `mdi-eye` : `mdi-eye-off`"
+            @click:append="show1 = !show1"
           />
           <v-text-field
             v-model="passwordCheck"
             label="비밀번호 확인"
-            type="passwordCheck"
+            :type="show2 ? 'text' : 'password'"
             :rules="passwordCheckRules"
+            :append-icon="show2 ? `mdi-eye` : `mdi-eye-off`"
+            @click:append="show2 = !show2"
             required
           />
           <v-text-field
@@ -50,6 +54,8 @@
 export default {
   data() {
     return {
+      show1: false,
+      show2: false,
       valid: false,
       email: "",
       password: "",
@@ -74,18 +80,25 @@ export default {
     };
   },
   methods: {
-    onSubmitForm() {
+    async onSubmitForm() {
       if (this.$refs.form.validate()) {
-        this.$store.dispatch("users/signUp", {
+        await this.$store.dispatch("users/signUp", {
           nickname: this.nickname,
           email: this.email,
+        })
+        .then(() => {
+          this.$router.push({
+            path: '/',
+          });
+        })
+        .chatch(() => {
+          alert('회원가입 실패');
         });
-      } else {
       }
-    },
-  },
-};
+    }
+  }
+}
+
 </script>
 
-<style>
-</style>
+<style></style>
