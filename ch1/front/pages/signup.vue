@@ -27,8 +27,8 @@
             :type="show2 ? 'text' : 'password'"
             :rules="passwordCheckRules"
             :append-icon="show2 ? `mdi-eye` : `mdi-eye-off`"
-            @click:append="show2 = !show2"
             required
+            @click:append="show2 = !show2"
           />
           <v-text-field
             v-model="nickname"
